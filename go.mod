@@ -1,4 +1,4 @@
-module github.com/lawlog/index
+module github.com/lawtext/index
 
 go 1.24.2
 

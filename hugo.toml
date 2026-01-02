@@ -1,4 +1,4 @@
-baseURL = 'https://lawlog.github.io/'
+# baseURL = ''
 title = '中国法律法规在线文库'
 
 # 语言设置
@@ -173,4 +173,4 @@ keywords = "关键词"
 
 [services]
 [services.disqus]
-shortname = 'lawnav'
+shortname = 'law'

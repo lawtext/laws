@@ -8,8 +8,12 @@
 目前仅包括全国性法律法规（超过两千件，包括已废止的文档），而地方性法规数量较多暂未纳入网站展示。
 `docx/doc`文档参见仓库（定期自动更新）：
 
-- 全国法律法规 [lawlog/law-flk-vol1](https://github.com/lawlog/law-flk-vol1)
-- 地方法规 [lawlog/law-flk-vol2](https://github.com/lawlog/law-flk-vol2)
+- 全国法律法规 [lawtext/law-flk-vol1](https://github.com/lawtext/law-flk-vol1)
+  ![stars](https://img.shields.io/github/stars/lawtext/law-flk-vol1)
+  ![commit](https://img.shields.io/github/last-commit/lawtext/law-flk-vol1)
+- 地方法规 [lawtext/law-flk-vol2](https://github.com/lawtext/law-flk-vol2)
+  ![stars](https://img.shields.io/github/stars/lawtext/law-flk-vol2)
+  ![commit](https://img.shields.io/github/last-commit/lawtext/law-flk-vol2)
 
 网站资源：
 
