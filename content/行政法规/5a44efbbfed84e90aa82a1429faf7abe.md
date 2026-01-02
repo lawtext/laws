@@ -22,11 +22,10 @@ years:
   - 2023年
   - 2024年
 keywords:
+  - 专利
   - 行政部门
-  - 专利权
-  - 期限
   - 国际
-  - 专利申请
+  - 文件
 urls:
   - https://flk.npc.gov.cn/detail?id=5a44efbbfed84e90aa82a1429faf7abe
 ---
