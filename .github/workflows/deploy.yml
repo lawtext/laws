@@ -94,7 +94,7 @@ jobs:
 
       - name: Build Site
         run: |
-          hugo --gc --minify --baseURL https://${USER}.github.io
+          hugo --gc --minify --baseURL https://${USER}.github.io/${REPO}
 
       - name: Setup pages
         uses: actions/configure-pages@v5
