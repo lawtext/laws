@@ -30,7 +30,6 @@ urls:
   - https://flk.npc.gov.cn/detail?id=5a44efbbfed84e90aa82a1429faf7abe
 ---
 
-
 国务院关于修改《中华人民共和国
 
 专利法实施细则》的决定
