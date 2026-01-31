@@ -171,6 +171,12 @@ keywords = "关键词"
 # #   icon = "fa fa-envelope"
 # #   desc = "Discussion and help from your fellow users"
 
+[[menu.main]]
+    name = '地方性法规'
+    weight = 90
+    url = 'https://lawtext.github.io/regulations'
+    pre = '<i class="fa-solid fa-map"></i>'
+
 [services]
 [services.disqus]
 shortname = 'law'

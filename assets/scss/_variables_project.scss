@@ -141,11 +141,11 @@ $font-serif: "FangSong", "STFangsong", "仿宋", "SimSun", "STSong", "宋体",
 }
 
 /* 隐藏列表点号 */
-.td-content li {
+.td-content ul li {
   list-style: none;
 }
 
-.td-content li::before {
+.td-content ul li::before {
   content: "";
 }
 
