@@ -2,13 +2,14 @@ name: Deploy Site
 
 on:
   workflow_run:
-    workflows: ["build"]
+    workflows: ["Update Data"]
     types:
       - completed
   workflow_dispatch:
 
 jobs:
   trigger:
+    # if: ${{ github.event.workflow_run.conclusion == 'success' }}
     # needs: process
     runs-on: ubuntu-latest
     timeout-minutes: 5
