@@ -1,12 +1,12 @@
 name: Update Data
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - "README.md"
-      - ".gitignore"
+  # push:
+  #   branches:
+  #     - main
+  #   paths-ignore:
+  #     - "README.md"
+  #     - ".gitignore"
   workflow_dispatch:
   schedule:
     - cron: "5 5 * * 6"

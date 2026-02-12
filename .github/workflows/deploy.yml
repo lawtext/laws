@@ -1,0 +1,25 @@
+name: Deploy Site
+
+on:
+  workflow_dispatch:
+
+jobs:
+  trigger:
+    # needs: process
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    env:
+      USER: ${{ github.repository_owner }}
+      # REPO_NAME: ${{ github.event.repository.name }}
+      REPO: "lawtext.github.io"
+
+    steps:
+      - name: Trigger workflow
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN_ACTION }}
+          REPO: ${{ env.USER }}/${{ env.REPO }}
+          EVENT_TYPE: "deploy-event"
+        run: |
+          echo "repo $REPO"
+          gh api --method POST /repos/${REPO}/dispatches -f "event_type=${EVENT_TYPE}"
