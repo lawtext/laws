@@ -1,4 +1,4 @@
-name: GitHub Pages
+name: Update Data
 
 on:
   push:
@@ -80,30 +80,50 @@ jobs:
           # push_options: "--force"
           file_pattern: "content"
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
-        with:
-          hugo-version: ${{ env.HUGO_VERSION }}
-          extended: true
+      # - name: Setup Hugo
+      #   uses: peaceiris/actions-hugo@v3
+      #   with:
+      #     hugo-version: ${{ env.HUGO_VERSION }}
+      #     extended: true
 
-      - name: Setup Node
-        uses: pnpm/action-setup@v4
+      # - name: Setup Node
+      #   uses: pnpm/action-setup@v4
 
-      - run: pnpm install
-      - run: hugo mod get -u && hugo mod tidy
+      # - run: pnpm install
+      # - run: hugo mod get -u && hugo mod tidy
 
-      - name: Build Site
+      # - name: Build Site
+      #   run: |
+      #     hugo --gc --minify --baseURL https://${USER}.github.io/${REPO}
+
+      # - name: Setup pages
+      #   uses: actions/configure-pages@v5
+
+      # - name: Upload artifact
+      #   uses: actions/upload-pages-artifact@v4
+      #   with:
+      #     path: ./public
+
+      # - name: Deploy to GitHub pages
+      #   id: deployment
+      #   uses: actions/deploy-pages@v4
+
+  trigger:
+    needs: process
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    env:
+      USER: ${{ github.repository_owner }}
+      # REPO_NAME: ${{ github.event.repository.name }}
+      REPO: "lawtext.github.io"
+
+    steps:
+      - name: Trigger workflow
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN_ACTION }}
+          REPO: ${{ env.USER }}/${{ env.REPO }}
+          EVENT_TYPE: "deploy-event"
         run: |
-          hugo --gc --minify --baseURL https://${USER}.github.io/${REPO}
-
-      - name: Setup pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: ./public
-
-      - name: Deploy to GitHub pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          echo "repo $REPO"
+          gh api --method POST /repos/${REPO}/dispatches -f "event_type=${EVENT_TYPE}"
