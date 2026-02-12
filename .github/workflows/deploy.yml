@@ -1,6 +1,10 @@
 name: Deploy Site
 
 on:
+  workflow_run:
+    workflows: ["build"]
+    types:
+      - completed
   workflow_dispatch:
 
 jobs:
@@ -12,13 +16,13 @@ jobs:
     env:
       USER: ${{ github.repository_owner }}
       # REPO_NAME: ${{ github.event.repository.name }}
-      REPO: "lawtext.github.io"
+      REPO_NAME: "${{ secrets.REPO_DEPLOY }}"
 
     steps:
       - name: Trigger workflow
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN_ACTION }}
-          REPO: ${{ env.USER }}/${{ env.REPO }}
+          REPO: ${{ env.USER }}/${{ env.REPO_NAME }}
           EVENT_TYPE: "deploy-event"
         run: |
           echo "repo $REPO"

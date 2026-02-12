@@ -1,0 +1,56 @@
+name: GitHub Pages
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    permissions:
+      # contents: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+
+    env:
+      USER: ${{ github.repository_owner }}
+      REPO: ${{ github.event.repository.name }}
+      HUGO_VERSION: latest
+      HUGO_ENVIRONMENT: production
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: ${{ env.HUGO_VERSION }}
+          extended: true
+
+      - name: Setup Node
+        uses: pnpm/action-setup@v4
+
+      - run: pnpm install
+      - run: hugo mod get -u && hugo mod tidy
+
+      - name: Build Site
+        run: hugo --gc --minify --baseURL https://${USER}.github.io/${REPO}
+
+      - name: Setup pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./public
+
+      - name: Deploy to GitHub pages
+        id: deployment
+        uses: actions/deploy-pages@v4
