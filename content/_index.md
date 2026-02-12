@@ -2,9 +2,11 @@
 title: 中国法律法规在线文库
 description: "法律法规在线阅读"
 # menu: {main: {weight: 1, pre: "<i class='fa-solid fa-home'></i>" }}
+params:
+  body_class: td-navbar-links-all-active
 ---
 
-{{< blocks/cover title="中国法律法规" image_anchor="top" height="full" >}}
+{{% blocks/cover title="中国法律法规" height="full td-below-navbar" %}}
 
 {{% param description %}}
 {.display-6}
@@ -23,14 +25,14 @@ description: "法律法规在线阅读"
 <a class="btn btn-secondary me-3 mb-4" href="法律/2c909fdd678bf17901678bf7670606ef"><i class="fa-solid fa-section"></i> 消费者权益保护法</a>
 <a class="btn btn-secondary me-3 mb-4" href="法律/ff8081817ab231eb017abd617ef70519"><i class="fa-solid fa-section"></i> 道路交通安全法</a>
 
-<br/>
+{{% blocks/link-down color="info" %}}
 
-{{< blocks/link-down color="info" >}}
-{{< /blocks/cover >}}
+{{% /blocks/cover %}}
 
-{{% blocks/lead %}}
+{{% blocks/lead color="white" %}}
 更多官方资料参见：
 {{% /blocks/lead %}}
+
 
 {{% blocks/section type="row" %}}
 
@@ -58,14 +60,13 @@ description: "法律法规在线阅读"
 {{% blocks/feature icon="fab-solid fa-database" title="北大法宝·法律法规数据库" url="<https://www.pkulaw.com/law>" %}}
 {{% /blocks/feature %}}
 
-<!-- https://sjfg.samr.gov.cn/law/pageInfo/main.main 市场监管法律法规规章数据库 -->
-
-<!-- https://www.sac.gov.cn/xxgk/flfg/index.html 国家标准化管理委员会 法律法规 -->
-
 {{% /blocks/section %}}
 
 {{% blocks/section %}}
 
-{{% alert title="声明" color=warning %}} 本站数据采集自官方网站公开数据（包含失效和已修改的法律法规文本）。文本如有不一致，请以法律规定的标准文本为准。 {{% /alert %}}
+{{% alert title="声明" color="warning" %}}
+本站数据采集自官方网站公开数据（包含失效和已修改的法律法规文本）。
+文本如有不一致，请以法律规定的标准文本为准。
+{{% /alert %}}
 
 {{% /blocks/section %}}
