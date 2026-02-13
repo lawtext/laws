@@ -27,6 +27,36 @@ urls:
   - https://english.www.gov.cn/archive/lawsregulations/201911/20/content_WS5ed8856ec6d0b3f0e9499913.html
 ---
 
+<style>
+.td-content p,
+.td-content ul,
+.td-content ol,
+.td-content table tbody {
+  font-family: Cambria, Georgia, "Times New Roman", Times, "FangSong", "STFangsong", "仿宋", "SimSun", "STSong", "宋体", serif;
+}
+.td-content h1,
+.td-content h2,
+.td-content h3,
+.td-content h4,
+.td-content h5,
+.td-content h6,
+.td-content strong,
+.td-content b {
+  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "SimHei", "STHeiti", "黑体", "Microsoft YaHei", "微软雅黑",  "Noto Sans CJK SC", "Noto Sans SC", sans-serif;
+}
+
+.td-content blockquote,
+.td-content blockquote p {
+  font-family: Palatino, Georgia, "KaiTi", "STKaiti", "Kai", "楷体", serif;
+}
+
+.td-content blockquote strong,
+.td-content blockquote b {
+  font-family: Palatino, Georgia, "KaiTi", "STKaiti", "Kai", "楷体", serif;
+  font-weight: bold;
+}
+</style>
+
 _(This English version is provided by the Communist Party of China Central Committee Institute of Party History and Literature.)_
 
 [Chinese version](/宪法/2c909fdd678bf17901678bf5a483004b/)
@@ -37,8 +67,8 @@ _(This English version is provided by the Communist Party of�
 
 > (Adopted at the Fifth Session of the Fifth National People’s Congress and promulgated by the Announcement of the National People’s Congress on December 4, 1982; amended in accordance with the _Amendment to the Constitution of the People’s Republic of China_ adopted at the First Session of the Seventh National People’s Congress on April 12, 1988, the _Amendment to the Constitution of the People’s Republic of China_ adopted at the First Session of the Eighth National People’s Congress on March 29, 1993, the _Amendment to the Constitution of the People’s Republic of China_ adopted at the Second Session of the Ninth National People’s Congress on March 15, 1999, the _Amendment to the Constitution of the People’s Republic of China_ adopted at the Second Session of the Tenth National People’s Congress on March 14, 2004, and the _Amendment to the Constitution of the People’s Republic of China_ adopted at the First Session of the Thirteenth National People’s Congress on March 11, 2018)
 
-<details>
-<summary>Contents</summary>
+<details open>
+<summary><strong>Contents</strong></summary>
 
 - Preamble
 - Chapter I – General Principles

@@ -2,11 +2,9 @@
 title: 中国法律法规在线文库
 description: "法律法规在线阅读"
 # menu: {main: {weight: 1, pre: "<i class='fa-solid fa-home'></i>" }}
-params:
-  body_class: td-navbar-links-all-active
 ---
 
-{{% blocks/cover title="中国法律法规" height="full td-below-navbar" %}}
+{{% blocks/cover title="中国法律法规" height="full" %}}
 
 {{% param description %}}
 {.display-6}
