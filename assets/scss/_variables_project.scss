@@ -11,9 +11,9 @@ $td-enable-google-fonts: true;
 
 /* 字体 */
 $font-kai: "KaiTi", "STKaiti", "Kai", "楷体", serif;
-$font-sans: "PingFang SC", "SimHei", "STHeiti", "黑体", "Microsoft YaHei", "微软雅黑", 
+$font-sans: "PingFang SC", "SimHei", "STHeiti", "黑体", "Microsoft YaHei", "微软雅黑",
   "Noto Sans CJK SC", "Noto Sans SC", sans-serif;
-$font-serif: "FangSong", "STFangsong", "仿宋", "SimSun", "STSong", "宋体", 
+$font-serif: "FangSong", "STFangsong", "仿宋", "SimSun", "STSong", "宋体",
   "Noto Serif CJK SC", "Noto Serif SC", serif;
 
 .pagination a {
@@ -145,15 +145,19 @@ $font-serif: "FangSong", "STFangsong", "仿宋", "SimSun", "STSong", "宋体",
   list-style: none;
 }
 
-.td-content details ul li {
-  list-style: initial
+.td-content details ul li,
+.td-content .pageinfo ul li {
+  list-style: initial;
 }
 
 .td-content ul li::before {
   content: "";
 }
 
-.td-content > p {
+.td-content > p,
+.td-alert > p,
+.td-alert-body > p,
+.pageinfo > p {
   text-indent: 2rem;
 }
 
@@ -198,7 +202,8 @@ $font-serif: "FangSong", "STFangsong", "仿宋", "SimSun", "STSong", "宋体",
 
 /* 可选：引用块内加粗文字仍保持楷体，但加粗 */
 .td-content blockquote strong,
-.td-content blockquote b {
+.td-content blockquote b,
+.pageinfo strong {
   font-family: $font-kai;
   font-weight: bold;
 }
@@ -243,6 +248,16 @@ $font-serif: "FangSong", "STFangsong", "仿宋", "SimSun", "STSong", "宋体",
 .d-print-none,
 .d-print-none h2,
 .d-print-none button,
-.d-print-none p {
+.d-print-none p,
+.td-doc-pagination,
+.td-doc-pagination ul li {
   font-family: initial;
+}
+
+.footnotes ol li {
+  font-size: smaller;
+}
+
+.footnotes ol li p {
+  font-family: $font-kai;
 }

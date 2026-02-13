@@ -1,100 +1,53 @@
 <div class="section-table">
-  {{ $pages := (where .Pages "Type" "docs").ByDate.Reverse }}
-  {{ $pageSize := default 10 .Site.Params.page.pageSize }}
-  {{ $paginator := .Paginate $pages $pageSize }}
+    {{ $pages := (where .Pages "Type" "docs").ByDate.Reverse }}
+    {{ $pageSize := default 10 .Site.Params.page.pageSize }}
+    {{ $paginator := .Paginate $pages $pageSize }}
 
-  {{ if gt (len $paginator.Pages) 0 }}
-  <table class="doc-table">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>标题</th>
-        <th>日期</th>
-        <th>制定</th>
-        <th>状态</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{ range $index, $page := $paginator.Pages }}
-      <tr>
-        <td>{{ add (mul (sub $paginator.PageNumber 1) $paginator.PagerSize) (add $index 1) }}</td>
-        <td>🔗 <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></td>
-        <td>
-          {{ $date := "" }}
-          {{ with .Params.publication_date }}
-          {{ $t := time . }}
-          {{ $date = $t.Format "2006-01-02" }}
-          {{ else }}
-          {{ with .Params.effective_date }}
-          {{ $t := time . }}
-          {{ $date = $t.Format "2006-01-02" }}
-          {{ end }}
-          {{ end }}
-          {{ $date }}
-        </td>
-        <td>{{ with $page.Params.author }}{{ . }}{{ end }}</td>
-        <td>
-              {{ $status := .Params.status }}
-    {{ if $status }}
-      <span class="law-status 
-        {{ cond (eq $status "尚未生效") "pending" "" }}
-        {{ cond (eq $status "有效") "active" "" }}
-        {{ cond (eq $status "已修改") "amended" "" }}
-        {{ cond (eq $status "已废止") "repealed" "" }}
-        {{ cond (eq $status "未知") "unknown" "" }}">
-        {{ $status }}
-      </span>
+    {{ if gt (len $paginator.Pages) 0 }}
+    <table class="doc-table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>标题</th>
+            <th>日期</th>
+            <th>制定</th>
+            <th>状态</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{ range $index, $page := $paginator.Pages }}
+        <tr>
+            <td>{{ add (mul (sub $paginator.PageNumber 1) $paginator.PagerSize) (add $index 1) }}</td>
+            <td>🔗 <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></td>
+            <td>
+                {{ $rawDate := .Params.publication_date | default .Params.effective_date | default .Params.date }}
+                {{ with $rawDate }}
+                    {{ . | time.Format "2006-01-02" }}
+                {{ end }}
+            </td>
+            <td>
+                {{ if .Params.authors }}
+                    {{delimit .Params.authors "、"}}<br>
+                {{ else if .Params.author }}
+                    {{ .Params.author }}<br>
+                {{ end }}
+            </td>
+            <td>
+            {{ $status := .Params.status }}
+            {{ if $status }}
+                {{ $class := index .Site.Params.statusClassMap $status | default "unknown" }}
+                <span class="law-status{{ with $class }} {{ . }}{{ end }}">{{ $status }}</span>
+            {{ end }}
+            </td>
+        </tr>
+        {{ end }}
+        </tbody>
+    </table>
+    {{ else }}
+    <p>暂无内容</p>
     {{ end }}
-        </td>
-      </tr>
-      {{ end }}
-    </tbody>
-  </table>
-  {{ else }}
-  <p>暂无文章</p>
-  {{ end }}
-
-  {{/* 分页导航，5 个中间页 + 首页/末页 + 上/下一页 */}}
-  {{ $total := $paginator.TotalPages }}
-  {{ $current := $paginator.PageNumber }}
-  {{ $maxWindow := 5 }}
-
-  {{ if gt $total 1 }}
-  {{ $start := sub $current 2 }}
-  {{ if lt $start 2 }}{{ $start = 2 }}{{ end }}
-  {{ $end := add $start (sub $maxWindow 1) }}
-  {{ if gt $end (sub $total 1) }}{{ $end = sub $total 1 }}{{ end }}
-  {{ $start = sub $end (sub $maxWindow 1) }}
-  {{ if lt $start 2 }}{{ $start = 2 }}{{ end }}
-
-  <nav class="pagination">
-    {{ if $paginator.HasPrev }}
-    <a class="prev" href="{{ $paginator.Prev.URL }}">« 上一页</a>
-    {{ end }}
-
-    {{/* 首页 */}}
-    {{ if ge $current 2 }}
-    <a href="{{ $paginator.First.URL }}" class="{{ if eq $current 1 }}active{{ end }}">1</a>
-    {{ if gt $start 2 }}<span>…</span>{{ end }}
-    {{ end }}
-
-    {{/* 中间页码 */}}
-    {{ range seq $start $end }}
-    {{ $page := index $paginator.Pagers (sub . 1) }}
-    <a href="{{ $page.URL }}" class="{{ if eq $current . }}active{{ end }}">{{ . }}</a>
-    {{ end }}
-
-    {{/* 末页 */}}
-    {{ if gt $total 1 }}
-    {{ if lt $current $total }}
-    {{ if lt $end (sub $total 1) }}<span>…</span>{{ end }}
-    <a href="{{ $paginator.Last.URL }}" class="{{ if eq $current $total }}active{{ end }}">{{ $total }}</a>
-    {{ end }}
-    {{ end }}
-
-    {{ if $paginator.HasNext }}
-    <a class="next" href="{{ $paginator.Next.URL }}">下一页 »</a>
-    {{ end }}
-  </nav>
-  {{ end }}
+ 
+<div class="td-doc-pagination">
+{{ partial "pagination.html" . -}}
+</div>
 </div>

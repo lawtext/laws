@@ -2,24 +2,38 @@
 
 <div class="doc-info">
 <p>
-    <strong>【制定机关】</strong> {{ .Params.author }} <br>
-    <strong>【公布日期】</strong> {{ .Params.publication_date }}<br>
-    <strong>【施行日期】</strong> {{ .Params.effective_date }}<br>
+    {{ if .Params.authors }}
+        <strong>【制定机关】</strong>{{delimit .Params.authors "、" "以及" }}<br>
+    {{ else if .Params.author }}
+        <strong>【制定机关】</strong>{{ .Params.author }}<br>
+    {{ end }}
+    <strong>【公布日期】</strong>{{ .Params.publication_date }}<br>
+    <strong>【施行日期】</strong>{{ .Params.effective_date }}<br>
     <strong>【当前状态】</strong> 
     {{ $status := .Params.status }}
     {{ if $status }}
-      <span class="law-status 
-        {{ cond (eq $status "尚未生效") "pending" "" }}
-        {{ cond (eq $status "有效") "active" "" }}
-        {{ cond (eq $status "已修改") "amended" "" }}
-        {{ cond (eq $status "已废止") "repealed" "" }}
-        {{ cond (eq $status "未知") "unknown" "" }}">
-        {{ $status }}
-      </span>
+        {{ $class := index .Site.Params.statusClassMap $status | default "unknown" }}
+        <span class="law-status{{ with $class }} {{ . }}{{ end }}">{{ $status }}</span>
     {{ end }}
     <br>
-    <strong>【所属类别】</strong> {{ .Params.category }}<br>
-    <strong>【文件来源】</strong> 国家法律法规数据库 {{ range .Params.urls }}<a href="{{ . }}">🔗</a>{{ end }}
+
+    {{ if .Params.categories }}
+        <strong>【所属类别】</strong>{{delimit .Params.categories "、"}}<br>
+    {{ else if .Params.category }}
+        <strong>【所属类别】</strong>{{ .Params.category }}<br>
+    {{ end }}
+    
+    {{ $source := .Params.source | default .Site.Params.defaultSource }}
+    {{ if .Params.urls }}
+        <strong>【文件来源】</strong>{{ $source }}
+        {{ range $index, $url := .Params.urls }}
+            {{ if $index }} {{ end }}<a href="{{ $url | safeURL }}">🔗</a>
+        {{ end }}<br>
+    {{ else if .Params.link }}
+        <strong>【文件来源】</strong>{{ $source }} <a href="{{ .Params.link | safeURL }}">🔗</a><br>
+    {{ else if $source }}
+        <strong>【文件来源】</strong>{{ $source }}<br>
+    {{ end }}
 </p>
 </div>
 {{ .Render "_td-content" }}

@@ -53,7 +53,6 @@ quality = 75
 anchor = "Smart"
 
 # Language configuration
-
 # [languages]
 # [languages.en]
 # languageName ="English"
@@ -95,6 +94,7 @@ section = ["HTML"]
 # Everything below this are Site Params
 [params]
 reading_speed = 400
+defaultSource = "国家法律法规数据库"
 
 # privacy_policy = "https://policies.google.com/privacy"
 # Enable syntax highlighting and copy buttons on code blocks with Prism
@@ -128,7 +128,7 @@ apiKey = "cd70b06ccd99eeeb94ebca076c1c0a98"
 [params.copyright]
 authors = "建站 [Hugo](https://gohugo.io/) | 主题 [Docsy](https://www.docsy.dev/)"
 from_year = 2025
-to_year = "present"
+# to_year = "present"
 
 # User interface configuration
 [params.ui]
@@ -172,6 +172,16 @@ years = "年份"
 keyword = "关键词"
 keywords = "关键词"
 
+[params.statusClassMap]
+"尚未生效" = "pending"
+"有效" = "active"
+"生效" = "active"
+"已修改" = "amended"
+"已修订" = "amended"
+"已废止" = "repealed"
+"废止或失效" = "repealed"
+"未知" = "unknown"
+
 # [params.links]
 # [[params.links.user]]
 #   name = "User mailing list"
@@ -180,23 +190,23 @@ keywords = "关键词"
 #   desc = "Discussion and help from your fellow users"
 
 [[menu.main]]
-    name = '相关链接'
-    weight = 90
-    pre = '<i class="fa-solid fa-link"></i>'
+name = '相关链接'
+weight = 90
+pre = '<i class="fa-solid fa-link"></i>'
 
 [[menu.main]]
-    parent = '相关链接'
-    name = '地方性法规'
-    weight = 91
-    url = 'https://lawtext.github.io/regulations/'
-    pre = '<i class="fa-solid fa-map"></i>'
+parent = '相关链接'
+name = '地方性法规'
+weight = 91
+url = 'https://lawtext.github.io/regulations/'
+pre = '<i class="fa-solid fa-map"></i>'
 
 [[menu.main]]
-    parent = '相关链接'
-    name = '党章党规'
-    weight = 92
-    url = 'https://lawtext.github.io/cpc/'
-    pre = '<i class="fa-solid fa-hammer"></i>'
+parent = '相关链接'
+name = '党章党规'
+weight = 92
+url = 'https://lawtext.github.io/cpc/'
+pre = '<i class="fa-solid fa-hammer"></i>'
 
 [services]
 [services.disqus]

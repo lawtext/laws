@@ -10,7 +10,7 @@ description: "法律法规在线阅读"
 {.display-6}
 
 <a class="btn btn-lg btn-secondary me-3 mb-4" href="法律/ff808081729d1efe01729d50b5c500bf">查阅《民法典》 <i class="fas fa-arrow-alt-circle-right ms-2"></i></a>
-<a class="btn btn-lg btn-primary me-3 mb-4" href="宪法/2c909fdd678bf17901678bf5a483004b/">查阅《宪法》 <i class="fas fa-arrow-alt-circle-right ms-2"></i></a>
+<a class="btn btn-lg btn-primary me-3 mb-4" href="宪法/2c909fdd678bf17901678bf5a483004b/"><i class="fa-solid fa-paperclip"></i> 查阅《宪法》 <i class="fas fa-arrow-alt-circle-right ms-2"></i></a>
 <a class="btn btn-lg btn-secondary me-3 mb-4" href="法律/ff808181796a636a0179822a19640c92">查阅《刑法》 <i class="fas fa-arrow-alt-circle-right ms-2"></i></a>
 {.p-initial .my-2}
 
@@ -63,7 +63,7 @@ description: "法律法规在线阅读"
 {{% blocks/section %}}
 
 {{% alert title="声明" color="warning" %}}
-本站数据采集自官方网站公开数据（包含失效和已修改的法律法规文本）。
+本站数据采集自官方网站公开数据（包含失效和已修改的法律法规文本）。<br>
 文本如有不一致，请以法律规定的标准文本为准。
 {{% /alert %}}
 
