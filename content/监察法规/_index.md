@@ -7,7 +7,7 @@ menu: {main: {weight: 4, pre: "<i class='fa-solid fa-shield-halved'></i>" }}
 ---
 
 <details class="doc-details">
-<summary><strong>监察法规</strong>统计：共有3件，其中有效共1件</summary>
+<summary><strong>监察法规</strong>统计：共有3件，其中有效共2件</summary>
 {{% pageinfo %}}
 
 **监察法规**说明：
@@ -18,8 +18,7 @@ menu: {main: {weight: 4, pre: "<i class='fa-solid fa-shield-halved'></i>" }}
 
 **监察法规** 相关文本共有3件，其中：
 
-- 尚未生效: 1
-- 有效: 1
+- 有效: 2
 - 已修改: 1
 
 {{% /pageinfo %}}

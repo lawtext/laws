@@ -7,7 +7,7 @@ menu: {main: {weight: 3, pre: "<i class='fa-solid fa-building'></i>" }}
 ---
 
 <details class="doc-details">
-<summary><strong>行政法规</strong>统计：共有814件，其中有效共609件</summary>
+<summary><strong>行政法规</strong>统计：共有815件，其中有效共609件</summary>
 {{% pageinfo %}}
 
 **行政法规**说明：
@@ -29,9 +29,9 @@ menu: {main: {weight: 3, pre: "<i class='fa-solid fa-building'></i>" }}
 
 ---
 
-**行政法规** 相关文本共有814件，其中：
+**行政法规** 相关文本共有815件，其中：
 
-- 尚未生效: 5
+- 尚未生效: 6
 - 有效: 609
 - 已修改: 117
 - 已废止: 68
