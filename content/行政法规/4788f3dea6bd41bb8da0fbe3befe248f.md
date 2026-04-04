@@ -2,7 +2,7 @@
 id: 4788f3dea6bd41bb8da0fbe3befe248f
 title: 国务院关于修改《社会团体登记管理条例》的决定
 LinkTitle: 关于修改《社会团体登记管理条例》的决定（2026）
-file: 国务院关于修改《社会团体登记管理条例》的决定_4788f3dea6bd41bb8da0fbe3befe248f.docx
+file: 国务院关于修改《社会团体登记管理条例》的决定_20260312_4788f3dea6bd41bb8da0fbe3befe248f.docx
 author: 国务院
 date: '2026-03-12'
 publication_date: '2026-03-12'
