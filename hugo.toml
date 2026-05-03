@@ -2,7 +2,7 @@ baseURL = 'https://lawtext.github.io/'
 title = '中国法律法规在线文库'
 
 # 语言设置
-languageCode = "zh-cn"
+locale = "zh-cn"
 defaultContentLanguage = "zh-cn"
 defaultContentLanguageInSubdir = false
 hasCJKLanguage = true

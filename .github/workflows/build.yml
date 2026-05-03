@@ -36,10 +36,10 @@ jobs:
       DATA_NAME: data
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Checkout src repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: ${{ env.USER }}/${{ env.CODE }}
           token: ${{ secrets.GH_TOKEN }}
@@ -48,7 +48,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Checkout data repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: ${{ env.USER }}/${{ env.DATA }}
           token: ${{ secrets.GH_TOKEN }}
@@ -57,7 +57,7 @@ jobs:
           ref: ${{ github.ref }}
 
       - name: Set up Python 3
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: 3.x
 
@@ -68,7 +68,7 @@ jobs:
           popd
 
       - name: Git auto commit
-        uses: stefanzweifel/git-auto-commit-action@v6
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_user_name: "github-actions[bot]"
           commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"

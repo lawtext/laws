@@ -9,7 +9,6 @@ jobs:
     timeout-minutes: 25
 
     permissions:
-      # contents: write
       pages: write
       id-token: write
     environment:
@@ -26,7 +25,7 @@ jobs:
       HUGO_ENVIRONMENT: production
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
@@ -35,22 +34,22 @@ jobs:
           extended: true
 
       - name: Setup Node
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
 
       - run: pnpm install
-      - run: hugo mod tidy
+      - run: hugo mod get -u && hugo mod tidy
 
       - name: Build Site
         run: hugo --gc --minify --baseURL https://${USER}.github.io/${REPO}
 
       - name: Setup pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./public
 
       - name: Deploy to GitHub pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
